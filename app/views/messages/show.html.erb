@@ -7,8 +7,25 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @message.description %>
+  <textarea id="message_description" name="message[description]"><%= @message.description %></textarea>
 </p>
 
 <%= link_to 'Edit', edit_message_path(@message) %> |
 <%= link_to 'Back', messages_path %>
+
+<script type="text/javascript">
+  $(".field_with_errors").parents(".form-md-line-input").addClass("has-error")
+  $(".field_with_errors").append('<div class="form-control-focus"> </div>')
+  var editor = new Simditor({
+    textarea: $('#message_description'),
+    toolbar: [
+          'bold', 'italic', 'underline', '|', 
+          'ol', 'ul', 'blockquote', 'code', '|', 
+          'link', 'image', '|', 
+          'indent', 'outdent', '|', 
+          'hr', 'table'
+          ],
+    pasteImage: true
+  });
+  $("#message_description").hide()
+</script>
