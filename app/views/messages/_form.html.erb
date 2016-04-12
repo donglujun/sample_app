@@ -15,11 +15,30 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class='form-group'>
+    <%= f.label :description, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <textarea id="post_description" name="post[description]"><%= @message.description %></textarea>
+      <div class="form-control-focus"> </div>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(".field_with_errors").parents(".form-md-line-input").addClass("has-error")
+  $(".field_with_errors").append('<div class="form-control-focus"> </div>')
+  var editor = new Simditor({
+    textarea: $('#post_description'),
+    toolbar: [
+          'bold', 'italic', 'underline', '|', 
+          'ol', 'ul', 'blockquote', 'code', '|', 
+          'link', 'image', '|', 
+          'indent', 'outdent', '|', 
+          'hr', 'table'
+          ],
+    pasteImage: true
+  });
+  $("#post_description").hide()
+</script>
