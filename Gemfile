@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'kaminari'
 gem 'simditor'
+gem "therubyracer"
+gem "twitter-bootstrap-rails"
 group :doc do
 	gem 'sdoc', '~> 0.4.0', group: :doc
 end
