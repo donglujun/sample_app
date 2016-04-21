@@ -7,17 +7,18 @@
         <div class="topic media">
           <div class="infos media-body">
             <div class="title media-heading">
-              <a href="<%= message_path(message) %>"><%= message.title %></a>
+              <a href="<%= message_path(message) %>
+                ">
+                <%= message.title %></a>
             </div>
-            <footer style="text-align: right;"><%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></footer>
+            <footer style="text-align: right;">
+              <%= message.created_at.strftime('%Y/%m/%d %H:%M:%S') %></footer>
           </div>
         </div>
       </div>
     </div>
     <% end %>
-  <%= paginate @messages %>
-  </div>
-
+    <%= paginate @messages %></div>
 
   <div class="sidebar col-md-3">
 
@@ -26,15 +27,25 @@
       <a href="<%= new_message_path %>" class="btn btn-success btn-block btn-focus-reply">发帖</a>
     </div>
 
-<!--     <div class="panel panel-default">
-      <div class="panel-heading">统计信息</div>
-      <ul class="list-group">
-        <li class="list-group-item">社区会员:  人</li>
-        <li class="list-group-item">帖子数:  个</li>
-        <li class="list-group-item">回帖数:  条</li>
+    <div class="panel panel-default">
+      <div class="panel-heading">友情网站</div>
+      <ul class="list-group" style="text-align:center">
+        <li class="list-group-item">
+          <a href="https://www.upyun.com/" rel="nofollow" title="" target="_blank">
+            <img src="/upyun.png" style="width:120px;margin: 4px 0;"></a>
+        </li>
       </ul>
-    </div> -->
+    </div>
 
+    <!--     <div class="panel panel-default">
+    <div class="panel-heading">统计信息</div>
+    <ul class="list-group">
+      <li class="list-group-item">社区会员:  人</li>
+      <li class="list-group-item">帖子数:  个</li>
+      <li class="list-group-item">回帖数:  条</li>
+    </ul>
   </div>
+  -->
+</div>
 
 </div>
