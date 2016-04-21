@@ -7,6 +7,10 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
+  def home
+    @messages = Message.order("created_at desc").page(params[:page]).per(10)
+  end
+
   # GET /messages/1
   # GET /messages/1.json
   def show
@@ -25,15 +29,10 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      redirect_to root_url, notice: 'success.'
+    else
+      redirect_to root_url, notice: 'fail.'
     end
   end
 
