@@ -1,0 +1,17 @@
+<%= form_for(@issue) do |f| %>
+  <div>
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: 'form-control', placeholder: 'Text', type: 'text' %>
+  </div>
+
+  <div class="form-group form-md-line-input">
+    <%= f.label :level %>
+    <%= f.select "level", Issue.levels.keys, {required: 'true', class: 'form-control'} %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+<% end %>
