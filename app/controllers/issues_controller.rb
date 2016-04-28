@@ -8,7 +8,7 @@ class IssuesController < ApplicationController
   end
 
   def create
-    @issue = Issue.new(employee_parames)
+    @issue = Issue.new(issue_parames)
     if @issue.save
       redirect_to issues_path, notice: 'succeed'
     else
@@ -16,9 +16,31 @@ class IssuesController < ApplicationController
     end
   end
 
+  def edit
+    @issue = Issue.find(params[:id])
+  end
+
+  def update
+    @issue = Issue.find(params[:id])
+    if @issue.update(issue_parames)
+      redirect_to issues_path, notice: 'succeed'
+    else
+      redirect_to issues_path, notice: 'fail'
+    end
+  end
+
+  def destroy
+    @issue = Issue.find( params[:id] )
+    if @issue.destroy
+      redirect_to action: :index
+    else
+      redirect_to action: :index
+    end
+  end
+
   private
   
-    def employee_parames
+    def issue_parames
       params.require(:issue).permit(:level, :description, :state, :employee_id)
     end
 

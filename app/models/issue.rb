@@ -1,12 +1,13 @@
 class Issue < ActiveRecord::Base
+  belongs_to :employee
   enum level: {
-    low: 0,
-    middle: 1,
-    high: 2
+    "低" => 0,
+    "中" => 1,
+    "高" => 2,
   }
 
   enum state: {
-    open: 0,
-    resolved: 1,
+    "未修复" => 0,
+    "已修复" => 1,
   }
 end

@@ -1,17 +1,44 @@
 <%= form_for(@issue) do |f| %>
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_field :description, class: 'form-control', placeholder: 'Text', type: 'text' %>
-  </div>
-
-  <div class="form-group form-md-line-input">
+  <div class="form-group">
     <%= f.label :level %>
-    <%= f.select "level", Issue.levels.keys, {required: 'true', class: 'form-control'} %>
+    <%= f.select "level", Issue.levels.keys, {}, { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state %>
+    <%= f.select "state", Issue.states.keys, {}, { class: "form-control" } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :employee_id %>
+    <%= f.collection_select :employee_id, Employee.all, :id, :name, {}, { class: "form-control" } %>
   </div>
 
 
+  <div class='form-group'>
+    <%= f.label :description %>
+    <div>
+      <textarea id="message_description" name="issue[description]"><%= @issue.description %></textarea>
+      <div class="form-control-focus"> </div>
+    </div>
+  </div>
 
   <div class="actions">
     <%= f.submit class: 'btn btn-default' %>
   </div>
 <% end %>
+<script type="text/javascript">
+  $(".field_with_errors").parents(".form-md-line-input").addClass("has-error")
+  $(".field_with_errors").append('<div class="form-control-focus"> </div>')
+  var editor = new Simditor({
+    textarea: $('#message_description'),
+    toolbar: [
+          'bold', 'italic', 'underline', '|', 
+          'ol', 'ul', 'blockquote', 'code', '|', 
+          'link', 'image', '|', 
+          'indent', 'outdent', '|', 
+          'hr', 'table'
+          ],
+    pasteImage: true
+  });
+  $("#message_description").hide()
+</script>
