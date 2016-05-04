@@ -16,6 +16,15 @@ class EmployeesController < ApplicationController
     end
   end
 
+  def destroy
+    @employee = Employee.find(params[:id])
+    if @employee.destroy
+      redirect_to action: :index
+    else
+      redirect_to action: :index
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_parames

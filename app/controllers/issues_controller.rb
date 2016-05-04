@@ -30,7 +30,7 @@ class IssuesController < ApplicationController
   end
 
   def destroy
-    @issue = Issue.find( params[:id] )
+    @issue = Issue.find(params[:id])
     if @issue.destroy
       redirect_to action: :index
     else

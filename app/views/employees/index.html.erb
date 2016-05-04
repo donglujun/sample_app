@@ -10,6 +10,7 @@
 <% @employees.each do |s| %>
   <tr>
     <td><%= s.name %></td>
+    <td><%= link_to 'delete', employee_path(s), method: :delete %></td>
   </tr>
 <% end %>
 </tbody>

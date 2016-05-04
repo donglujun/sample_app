@@ -16,7 +16,7 @@
     <% @messages.each do |message| %>
       <tr>
         <td><%= message.title %></td>
-        <td><%= message.description[0..200] %></td>
+        <td><%= raw message.description[0..200] %></td>
         <td><%= link_to 'Show', message, class: 'btn btn-default' %></td>
         <td><%= link_to 'Edit', edit_message_path(message), class: 'btn btn-default' %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %></td>
