@@ -10,6 +10,12 @@
 <%= render 'shared/head' %>
   <div class="container">
     <div class="row">
+    <% unless notice.nil? %>
+    <div class="alert alert-info"><%= notice %></div>
+    <% end %>
+    <% unless alert.nil? %>
+    <div class="alert alert-danger"><%= alert %></div>
+    <% end %>
     <%= yield %>
     </div>
   </div>

@@ -25,6 +25,7 @@ gem 'kaminari'
 gem 'simditor'
 gem "therubyracer"
 gem "twitter-bootstrap-rails"
+gem 'devise'
 group :doc do
 	gem 'sdoc', '~> 0.4.0', group: :doc
 end
