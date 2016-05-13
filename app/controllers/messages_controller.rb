@@ -29,6 +29,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
+    @message.username = current_user.username
     if @message.save
       redirect_to root_url, notice: 'success.'
     else
