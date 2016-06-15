@@ -17,11 +17,11 @@
   <tr>
     <td><%= s.id %></td>
     <td><%= s.level %></td>
-    <td><%= s.created_at %></td>
-    <td><%= s.updated_at %></td>
+    <td><%= s.created_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
+    <td><%= s.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
     <td><%= s.state %></td>
     <td><%= s.employee.try(:name) %></td>
-    <td><%= raw s.description[0..9] %></td>
+    <td><%= raw s.description[0..15] %></td>
     <td><%= link_to 'edit', edit_issue_path(s) %>
     <%= link_to 'delete', issue_path(s), method: :delete %></td>
   </tr>
@@ -30,3 +30,4 @@
 </table>
 <%= paginate @issues %>
 <%= link_to 'New', new_issue_path, class: 'btn btn-default' %>
+<script type="text/javascript">$("#issues").addClass("active")</script>
