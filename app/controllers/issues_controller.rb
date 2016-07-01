@@ -38,6 +38,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def state
+    @issue = Issue.find(params[:id])
+    if @issue.state == '未修复'
+      @issue.update(state: 1)
+      redirect_to issues_path, notice: 'succeed'
+    else
+      redirect_to issues_path, notice: 'It was fixed.'
+    end
+  end
+
   private
   
     def issue_parames

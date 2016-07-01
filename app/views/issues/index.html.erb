@@ -23,7 +23,9 @@
     <td><%= s.employee.try(:name) %></td>
     <td><%= raw s.description[0..15] %></td>
     <td><%= link_to 'edit', edit_issue_path(s) %>
-    <%= link_to 'delete', issue_path(s), method: :delete %></td>
+    <%= link_to 'delete', issue_path(s), method: :delete %>
+    <a href="state/<%= s.id %>">state</a>
+    </td>
   </tr>
 <% end %>
 </tbody>
