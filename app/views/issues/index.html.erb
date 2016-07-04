@@ -21,9 +21,9 @@
     <td><%= s.updated_at.strftime('%Y/%m/%d %H:%M:%S') %></td>
     <td><%= s.state %></td>
     <td><%= s.employee.try(:name) %></td>
-    <td><%= raw s.description[0..15] %></td>
+    <td><%= raw s.description[0..25] %></td>
     <td><%= link_to 'edit', edit_issue_path(s) %>
-    <%= link_to 'delete', issue_path(s), method: :delete %>
+    <%= link_to 'delete', issue_path(s), method: :delete , data: { confirm: '是否确认！'} %>
     <a href="state/<%= s.id %>">state</a>
     </td>
   </tr>
