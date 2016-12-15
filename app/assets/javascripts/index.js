@@ -4,9 +4,9 @@ $(function(){
   //Check to see if the window is top if not then display button
   $(window).scroll(function(){
     if ($(this).scrollTop() > 100) {
-      $('.scrollToTop').fadeIn();
+      $('.scrollToTop').slideDown("slow");
     } else {
-      $('.scrollToTop').fadeOut();
+      $('.scrollToTop').slideUp("slow");
     }
   });
   
@@ -17,6 +17,4 @@ $(function(){
   });
   
   });
-
-  
 })
