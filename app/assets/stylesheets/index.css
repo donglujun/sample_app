@@ -1,0 +1,47 @@
+.scrollToTop{
+  text-decoration: none;
+  position: fixed;
+  right: 30px;
+  overflow: hidden;
+  width: 70px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  text-indent: 100%;
+  z-index: 27;
+  -webkit-transition: top 1s ease-in-out;
+  -o-transition: top 1s ease-in-out;
+  -moz-transition: top 1s ease-in-out;
+  transition: top 1s ease-in-out;
+  height: 100%;
+  height: -webkit-calc(100% - 77px);
+  height: -moz-calc(100% - 77px);
+  height: calc(100% - 77px);
+}
+.scrollToTop:hover{
+  text-decoration:none;
+}
+
+#toTopRope {
+    display: block;
+    background: url(/rope.png) repeat;
+    height: 1000px;
+    height: -webkit-calc(100% - 98px);
+    height: -moz-calc(100% - 98px);
+    height: calc(100% - 98px);
+    width: 100%;
+}
+
+#toTopRope, .e_m_h_l {
+    overflow: hidden;
+    position: relative;
+}
+
+#toTopHover {
+    width: 70px;
+    height: 98px;
+    top: -2px;
+    position: relative;
+    display: block;
+}
