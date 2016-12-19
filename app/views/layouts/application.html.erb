@@ -4,6 +4,8 @@
   <title>Application</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'index', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'index', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body style="padding-top: 56px;">
@@ -19,5 +21,9 @@
     <%= yield %>
     </div>
   </div>
+<a href="#" class="scrollToTop" style="display: none;">
+  <div id="toTopRope"></div>
+  <img id="toTopHover" src="/topscroll.png">
+</a>
 </body>
 </html>
