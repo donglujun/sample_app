@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :employees
   resources :issues
   get 'state/:id', to: 'issues#state'
+  resources :admin_users,only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
