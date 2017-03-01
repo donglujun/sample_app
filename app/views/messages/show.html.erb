@@ -13,6 +13,35 @@
 <%= link_to 'Edit', edit_message_path(@message), class: 'btn btn-default' %> 
 <%= link_to 'Back', messages_path, class: 'btn btn-default' %>
 
+<h2>Comments</h2>
+<% @message.comments.each do |comment| %>
+  <div class="topics panel panel-default">
+    <div class="panel-body">
+      <div class="topic media">
+        <div class="infos media-body">
+          <div class="title media-heading">
+              <%= comment.info %>
+          </div>
+          <footer style="text-align: right;">
+            <% @id = comment.user_id %>
+            by--<%= User.find(@id).username %>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<h2>Add a comment:</h2>
+<%= form_for([@message, @message.comments.build]) do |f| %>
+  <p>
+    <%= f.label :info %><br>
+    <%= f.text_area :info %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <script type="text/javascript">
   $(".field_with_errors").parents(".form-md-line-input").addClass("has-error")
   $(".field_with_errors").append('<div class="form-control-focus"> </div>')
@@ -28,4 +57,21 @@
     pasteImage: true
   });
   $("#message_description").hide()
+</script>
+
+<script type="text/javascript">
+  $(".field_with_errors").parents(".form-md-line-input").addClass("has-error")
+  $(".field_with_errors").append('<div class="form-control-focus"> </div>')
+  var editor = new Simditor({
+    textarea: $('#comment_info'),
+    toolbar: [
+          'bold', 'italic', 'underline', '|', 
+          'ol', 'ul', 'blockquote', 'code', '|', 
+          'link', 'image', '|', 
+          'indent', 'outdent', '|', 
+          'hr', 'table'
+          ],
+    pasteImage: true
+  });
+  $("#comment_info").hide()
 </script>

@@ -1,5 +1,4 @@
-<%= render 'form' %>
-<%= form_for @dream, :url => { :controller => 'comments', :action => 'create' } do |f| %>
+<%= form_for(@comment) do |f| %>
   <div>
     <%= f.label :info %><br>
     <%= f.text_field :info, class: 'form-control', placeholder: 'Text', type: 'text' %>

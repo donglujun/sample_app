@@ -1,9 +1,13 @@
+
 Rails.application.routes.draw do
   devise_for :users
   root 'messages#home'
-  resources :messages
+  resources :messages do
+    resources :comments
+  end
   resources :employees
   resources :issues
+  resources :comments
   get 'state/:id', to: 'issues#state'
   resources :admin_users,only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
